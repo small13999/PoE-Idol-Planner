@@ -10,7 +10,9 @@
     <h1>Idol Planner</h1>
     <div class="outer-container">
         <div class="left-side">
-            <div class="grid" id="grid"></div>
+            <div class="grid" id="grid" ondragover="handleDragOver(event)" 
+            ondrop="drop(event)"
+            style="position: relative; /* Ensure grid has positioning context */"></div>
             <div class="idol-creation">
                 <!-- Idol creation form elements here (same as before) -->
                 <div class="select-container">
