@@ -96,7 +96,7 @@ function setupSearchableSelect(inputId, optionsId, options = []) {
     }
 
     input.onfocus = () => {
-         if (!optionsContainer) {
+        if (!optionsContainer) {
             return;
         }
         updateOptions(input.value);
@@ -105,16 +105,16 @@ function setupSearchableSelect(inputId, optionsId, options = []) {
 
     input.onblur = () => {
         setTimeout(() => {
-             if (!optionsContainer) {
-               return;
+            if (!optionsContainer) {
+                return;
             }
             optionsContainer.style.display = 'none';
         }, 200);
     };
 
     input.oninput = () => {
-         if (!optionsContainer) {
-             return;
+        if (!optionsContainer) {
+            return;
         }
         updateOptions(input.value);
         optionsContainer.style.display = 'block';
@@ -133,9 +133,9 @@ async function updateModifiers() {
 
     // Load modifiers only if not already loaded for this size
     if (!modifierDatabase[size].prefixes.length && !modifierDatabase[size].suffixes.length) {
-      const modifiers = await loadModifiers(size);
-      modifierDatabase[size] = modifiers;
-      console.log('Loaded and stored modifiers:', modifiers);
+        const modifiers = await loadModifiers(size);
+        modifierDatabase[size] = modifiers;
+        console.log('Loaded and stored modifiers:', modifiers);
     } else {
         console.log('Using cached modifiers for size:', size);
     }
@@ -201,7 +201,7 @@ function extractModifierData(mod) {
         const maxPercentage = parseFloat(maxStr);
 
         if (isNaN(minPercentage) || isNaN(maxPercentage)) {
-          return {type: 'unknown'}
+            return { type: 'unknown' }
         }
 
         return {
@@ -214,8 +214,8 @@ function extractModifierData(mod) {
     } else if (numericPart.includes('%')) { // Percentage
         // Remove % before parsing
         const percentage = parseFloat(numericPart.replace('%', ''));
-        if (isNaN(percentage)){
-          return {type: 'unknown'}
+        if (isNaN(percentage)) {
+            return { type: 'unknown' }
         }
         return {
             type: 'percentage',
@@ -225,8 +225,8 @@ function extractModifierData(mod) {
         };
     } else if (numericPart.startsWith('x')) { // Count
         const count = parseInt(numericPart.substring(1), 10);
-          if (isNaN(count)){
-          return {type: 'unknown'}
+        if (isNaN(count)) {
+            return { type: 'unknown' }
         }
         return {
             type: 'count',
@@ -330,8 +330,8 @@ function updateTotalBonuses() {
         }
 
         if (!combined) {
-             // Add as a new entry with a count of 1. If combinable store combined mod.
-            combinedModifiers[currentMod] = {mod: currentMod, count: 1};
+            // Add as a new entry with a count of 1. If combinable store combined mod.
+            combinedModifiers[currentMod] = { mod: currentMod, count: 1 };
         }
     }
 
@@ -340,13 +340,13 @@ function updateTotalBonuses() {
     bonusesDiv.innerHTML = '';
 
     // --- Display Combined Modifiers ---
-     for (let modKey in combinedModifiers) {
+    for (let modKey in combinedModifiers) {
         const p = document.createElement('p');
         // If count > 1, display it with "xN".  Use stored mod, so range mods are displayed correctly.
-        if (combinedModifiers[modKey].count > 1 && extractModifierData(combinedModifiers[modKey].mod).type != 'percentage' &&  extractModifierData(combinedModifiers[modKey].mod).type != 'percentageRange'){
+        if (combinedModifiers[modKey].count > 1 && extractModifierData(combinedModifiers[modKey].mod).type != 'percentage' && extractModifierData(combinedModifiers[modKey].mod).type != 'percentageRange') {
             p.textContent = `${modKey} x${combinedModifiers[modKey].count}`;
         } else {
-           p.textContent = combinedModifiers[modKey].mod;  // Display combined value
+            p.textContent = combinedModifiers[modKey].mod;  // Display combined value
         }
         bonusesDiv.appendChild(p);
     }
@@ -391,27 +391,24 @@ function createIdol() {
     let initialCol = 6; // Place outside grid
     let initialRow = 0;
 
-      // Check for a free position, row by row.  This prevents stacking.
-        for (let r = 0; r < 7; r++) {
-            let positionOccupied = false;
-            for (let c = 0; c < idols.length; c++)
-            {
-                const rect = idols[c].getBoundingClientRect();
-                const idolRow = Math.floor((rect.top - gridRect.top) / 52);
-                const idolCol = Math.floor((rect.left - gridRect.left) / 52);
+    // Check for a free position, row by row.  This prevents stacking.
+    for (let r = 0; r < 7; r++) {
+        let positionOccupied = false;
+        for (let c = 0; c < idols.length; c++) {
+            const rect = idols[c].getBoundingClientRect();
+            const idolRow = Math.floor((rect.top - gridRect.top) / 52);
+            const idolCol = Math.floor((rect.left - gridRect.left) / 52);
 
-                if (idolRow === r && idolCol >=6)
-                {
-                    positionOccupied = true;
-                    break;
-                }
-            }
-            if (!positionOccupied)
-            {
-                initialRow = r;
+            if (idolRow === r && idolCol >= 6) {
+                positionOccupied = true;
                 break;
             }
         }
+        if (!positionOccupied) {
+            initialRow = r;
+            break;
+        }
+    }
 
     idol.style.position = 'absolute';
     idol.style.left = `${initialCol * 52 + gridRect.left}px`; //Correct position.
@@ -441,24 +438,56 @@ function drop(event) {
 
     const grid = document.getElementById('grid');
     const rect = grid.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    const col = Math.floor(x / 52);
-    const row = Math.floor(y / 52);
+    // Get the mouse position relative to the grid
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
 
     const [width, height] = idol.dataset.size.split('x').map(Number);
-    if (isValidPosition(row, col, width, height)) {
+    let bestOverlap = -1;
+    let bestRow = -1;
+    let bestCol = -1;
+
+    // Iterate through all POSSIBLE positions
+    for (let row = 0; row <= 7 - height; row++) {
+        for (let col = 0; col <= 6 - width; col++) {
+            if (isValidPosition(row, col, width, height, idolId)) {
+                let overlap = 0;
+                // Check overlap for EACH CELL the idol would occupy
+                for (let i = 0; i < height; i++) {
+                    for (let j = 0; j < width; j++) {
+                        // Calculate the absolute pixel coordinates of the current cell
+                        const cellX = col * 52 + j * 52; // Correct cell position
+                        const cellY = row * 52 + i * 52; // Correct cell position
+
+                        // Check if the mouse is WITHIN the current cell
+                        if (mouseX >= cellX && mouseX < cellX + 52 &&
+                            mouseY >= cellY && mouseY < cellY + 52) {
+                            overlap++;
+                        }
+                    }
+                }
+
+                if (overlap > bestOverlap) {
+                    bestOverlap = overlap;
+                    bestRow = row;
+                    bestCol = col;
+                }
+            }
+        }
+    }
+
+    if (bestRow !== -1 && bestCol !== -1) {
         grid.appendChild(idol);
-        idol.style.left = `${col * 52}px`;
-        idol.style.top = `${row * 52}px`;
+        idol.style.left = `${bestCol * 52}px`;
+        idol.style.top = `${bestRow * 52}px`;
         idol.classList.remove('dragging');
-        updateGridStateDebounced(); // Update URL after dropping (debounced)
+        updateGridStateDebounced();
         updateTotalBonuses();
+    } else {
+        idol.classList.remove('dragging'); // Remove dragging class even if not dropped
     }
 }
-
-function isValidPosition(row, col, width, height) {
+function isValidPosition(row, col, width, height, selfId = null) {
     if (row < 0 || col < 0 || row + height > 7 || col + width > 6) return false;
 
     for (let i = 0; i < height; i++) {
@@ -466,9 +495,11 @@ function isValidPosition(row, col, width, height) {
             if (blockedCells.some(([x, y]) => x === row + i && y === col + j)) {
                 return false;
             }
-            // Check for overlaps with existing idols
+            // Check for overlaps with existing idols, EXCLUDING the idol itself
             const existingIdols = document.querySelectorAll('#grid .idol');
             for (const existingIdol of existingIdols) {
+                if (selfId && existingIdol.id === selfId) continue; // Skip self-check
+
                 const existingRect = existingIdol.getBoundingClientRect();
                 const existingRow = Math.floor((existingRect.top - grid.getBoundingClientRect().top) / 52);
                 const existingCol = Math.floor((existingRect.left - grid.getBoundingClientRect().left) / 52);
@@ -493,7 +524,7 @@ function removeIdol(event) {
 
 function showMods(event) {
     const idol = event.target;
-     // Check if idol is being dragged. If yes, don't show mods.
+    // Check if idol is being dragged. If yes, don't show mods.
     if (idol.classList.contains('dragging')) {
         return;
     }
@@ -608,29 +639,28 @@ function deserializeGridState(stateString) {
     });
 
     idolData.forEach(idolData => {
-    const { row, col, size, mods } = idolData;
-    const idol = document.createElement('div');
-    idol.classList.add("idol");
-    idol.draggable = true;
-    idol.dataset.size = size;
-    idol.dataset.mods = mods;
-    idol.id = `idol-${Date.now()}`;
+        const { row, col, size, mods } = idolData;
+        const idol = document.createElement('div');
+        idol.classList.add("idol");
+        idol.draggable = true;
+        idol.dataset.size = size;
+        idol.dataset.mods = mods;
+        idol.id = `idol-${Date.now()}`;
 
-    idol.textContent = size;
+        idol.textContent = size;
 
-    const [width, height] = size.split('x').map(Number);
-    idol.style.width = `${width * 52}px`;
-    idol.style.height = `${height * 52}px`;
+        const [width, height] = size.split('x').map(Number);
+        idol.style.width = `${width * 52}px`;
+        idol.style.height = `${height * 52}px`;
 
-    idol.addEventListener('dragstart', drag);
-    idol.addEventListener('dblclick', removeIdol);
-    idol.addEventListener('mouseover', showMods);
-    idol.addEventListener('mouseout', hideMods);
+        idol.addEventListener('dragstart', drag);
+        idol.addEventListener('dblclick', removeIdol);
+        idol.addEventListener('mouseover', showMods);
+        idol.addEventListener('mouseout', hideMods);
 
-    // Place the idol on the grid
-    const grid = document.getElementById('grid');
-        if (isValidPosition(row, col, width, height))
-        {
+        // Place the idol on the grid
+        const grid = document.getElementById('grid');
+        if (isValidPosition(row, col, width, height)) {
             grid.appendChild(idol);
             idol.style.left = `${col * 52}px`;
             idol.style.top = `${row * 52}px`;
@@ -641,7 +671,7 @@ function deserializeGridState(stateString) {
 function updateGridState() {
     const serializedState = serializeGridState();
     const encodedState = encodeURIComponent(serializedState);
-	//THIS IS THE KEY LINE I MISSED:
+    //THIS IS THE KEY LINE I MISSED:
     window.history.replaceState(null, "", `#${encodedState}`);  // Update the URL!
     updateTotalBonuses();
 }
