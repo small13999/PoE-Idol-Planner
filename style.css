@@ -148,3 +148,11 @@ button {
 button:hover {
     background-color: #4fa3d1;
 }
+
+.drop-overlay {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 1000;
+    border: 2px solid white;
+}
