@@ -430,6 +430,7 @@ function drag(event) {
     const idol = event.target;
     idol.classList.add('dragging');
     event.dataTransfer.setData('text/plain', event.target.id);
+    hideMods(); // Hide tooltip when dragging starts
 }
 
 function drop(event) {
@@ -484,6 +485,7 @@ function isValidPosition(row, col, width, height) {
 }
 
 function removeIdol(event) {
+    hideMods(); // Hide tooltip BEFORE removing the idol
     event.target.remove();
     updateGridStateDebounced(); // Update URL after removing (debounced)
     updateTotalBonuses();
@@ -491,6 +493,10 @@ function removeIdol(event) {
 
 function showMods(event) {
     const idol = event.target;
+     // Check if idol is being dragged. If yes, don't show mods.
+    if (idol.classList.contains('dragging')) {
+        return;
+    }
     const mods = idol.dataset.mods;
     if (!mods) return;
 
@@ -507,6 +513,7 @@ function showMods(event) {
     tooltip.style.left = `${event.pageX + 10}px`;
     tooltip.style.top = `${event.pageY + 10}px`;
 }
+
 
 function hideMods() {
     const tooltip = document.getElementById('tooltip');
