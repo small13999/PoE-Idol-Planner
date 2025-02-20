@@ -423,70 +423,91 @@ function allowDrop(event) {
     event.preventDefault();
 }
 
+let currentDragInfo = null;
+
 function drag(event) {
     const idol = event.target;
     idol.classList.add('dragging');
     event.dataTransfer.setData('text/plain', event.target.id);
-    hideMods(); // Hide tooltip when dragging starts
+    hideMods();
+
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.id = 'drag-overlay';
+    overlay.className = 'drop-overlay';
+    const size = idol.dataset.size.split('x').map(Number);
+    overlay.style.width = `${size[0] * 52}px`;
+    overlay.style.height = `${size[1] * 52}px`;
+    document.getElementById('grid').appendChild(overlay);
+
+    // Store drag info
+    currentDragInfo = {
+        width: size[0],
+        height: size[1],
+        idolId: idol.id
+    };
+}
+
+function handleDragOver(event) {
+    event.preventDefault();
+    if (!currentDragInfo) return;
+
+    const grid = document.getElementById('grid');
+    const rect = grid.getBoundingClientRect();
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
+
+    // Calculate potential position
+    let col = Math.floor(mouseX / 52);
+    let row = Math.floor(mouseY / 52);
+
+    // Clamp to grid boundaries
+    col = Math.max(0, Math.min(col, 6 - currentDragInfo.width));
+    row = Math.max(0, Math.min(row, 7 - currentDragInfo.height));
+
+    // Check validity
+    const isValid = isValidPosition(row, col, currentDragInfo.width, currentDragInfo.height, currentDragInfo.idolId);
+
+    // Update overlay
+    const overlay = document.getElementById('drag-overlay');
+    if (overlay) {
+        overlay.style.left = `${col * 52}px`;
+        overlay.style.top = `${row * 52}px`;
+        overlay.style.backgroundColor = isValid ? 'rgba(0, 255, 0, 0.3)' : 'rgba(255, 0, 0, 0.3)';
+    }
 }
 
 function drop(event) {
     event.preventDefault();
-    const idolId = event.dataTransfer.getData('text/plain');
-    const idol = document.getElementById(idolId);
+    const idol = document.getElementById(currentDragInfo.idolId);
     if (!idol) return;
 
-    const grid = document.getElementById('grid');
-    const rect = grid.getBoundingClientRect();
-    // Get the mouse position relative to the grid
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
+    const overlay = document.getElementById('drag-overlay');
+    if (overlay) {
+        const col = parseInt(overlay.style.left) / 52;
+        const row = parseInt(overlay.style.top) / 52;
 
-    const [width, height] = idol.dataset.size.split('x').map(Number);
-    let bestOverlap = -1;
-    let bestRow = -1;
-    let bestCol = -1;
-
-    // Iterate through all POSSIBLE positions
-    for (let row = 0; row <= 7 - height; row++) {
-        for (let col = 0; col <= 6 - width; col++) {
-            if (isValidPosition(row, col, width, height, idolId)) {
-                let overlap = 0;
-                // Check overlap for EACH CELL the idol would occupy
-                for (let i = 0; i < height; i++) {
-                    for (let j = 0; j < width; j++) {
-                        // Calculate the absolute pixel coordinates of the current cell
-                        const cellX = col * 52 + j * 52; // Correct cell position
-                        const cellY = row * 52 + i * 52; // Correct cell position
-
-                        // Check if the mouse is WITHIN the current cell
-                        if (mouseX >= cellX && mouseX < cellX + 52 &&
-                            mouseY >= cellY && mouseY < cellY + 52) {
-                            overlap++;
-                        }
-                    }
-                }
-
-                if (overlap > bestOverlap) {
-                    bestOverlap = overlap;
-                    bestRow = row;
-                    bestCol = col;
-                }
-            }
+        if (isValidPosition(row, col, currentDragInfo.width, currentDragInfo.height, idol.id)) {
+            idol.style.left = `${col * 52}px`;
+            idol.style.top = `${row * 52}px`;
+            document.getElementById('grid').appendChild(idol);
+            updateGridStateDebounced();
+            updateTotalBonuses();
         }
+        overlay.remove();
     }
-
-    if (bestRow !== -1 && bestCol !== -1) {
-        grid.appendChild(idol);
-        idol.style.left = `${bestCol * 52}px`;
-        idol.style.top = `${bestRow * 52}px`;
-        idol.classList.remove('dragging');
-        updateGridStateDebounced();
-        updateTotalBonuses();
-    } else {
-        idol.classList.remove('dragging'); // Remove dragging class even if not dropped
-    }
+    
+    currentDragInfo = null;
+    idol.classList.remove('dragging');
 }
+
+function handleDragEnd(event) {
+    const overlay = document.getElementById('drag-overlay');
+    if (overlay) overlay.remove();
+    currentDragInfo = null;
+    event.target.classList.remove('dragging');
+}
+
 function isValidPosition(row, col, width, height, selfId = null) {
     if (row < 0 || col < 0 || row + height > 7 || col + width > 6) return false;
 
