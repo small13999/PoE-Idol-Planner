@@ -1,0 +1,132 @@
+Prefixes
+2000681Your Maps have +(15–25)% chance to contain an Abyss
+2000681Your Maps have (80–100)% increased chance to contain an Abyss
+1500681Your Maps have +(15–25)% chance to contain Alva
+1500681Your Maps have (80–100)% increased chance to contain Alva
+500681Your Maps have a (15–25)% chance to contain an additional Rogue Exile
+1000681Your Maps have +(7–10)% chance to contain a Rogue Exile
+500681Map Bosses have (6–10)% chance to be accompanied by two Rogue Exile Bodyguards
+1000681Map Bosses have (2–3)% chance to be accompanied by two Rogue Exiles
+1500681Your Maps have +(15–25)% chance to contain Einhar
+1500681Your Maps have (80–100)% increased chance to contain Einhar
+1000681(15–25)% chance for your Maps to attract Beyond Demons
+2000681Your Maps have +(15–25)% chance to contain a Blight Encounter
+2000681Your Maps have (80–100)% increased chance to contain a Blight Encounter
+1000681Your Maps have +(15–25)% chance to contain Breaches
+2000681Your Maps have (80–100)% increased chance to contain a Breach
+1000681Your Maps which contain Breaches have (15–25)% chance to contain an additional Breach
+1000781Map Bosses have (40–60)% increased chance to drop a Conqueror Map
+2000681Your Maps have +(15–25)% chance to contain a Mirror of Delirium
+2000681Your Maps have (80–100)% increased chance to contain a Mirror of Delirium
+600681Your Maps have +(15–25)% chance to contain Niko
+1500681Your Maps have (80–100)% increased chance to contain Niko
+300681Your White Tier Maps grant (100–150) additional Voltaxic Sulphite on Completion
+300681Your Yellow Tier Maps grant (150–200) additional Voltaxic Sulphite on Completion
+300681Your Red Tier Maps grant (200–250) additional Voltaxic Sulphite on Completion
+1000681Your Maps have +(7–10)% chance to contain a Shrine
+1000681Your Maps have a (35–50)% chance to contain an additional Shrine
+1000681Your Maps have +(7–10)% chance to contain an Imprisoned Monster
+1000681Your Maps have (35–50)% chance to contain an additional Imprisoned Monster
+2000681Your Maps have +(15–25)% chance to contain an Expedition Encounter
+2000681Your Maps have (80–100)% increased chance to contain an Expedition Encounter
+1000681Your Maps have a (35–50)% chance to contain an additional Harbinger
+2000681Your Maps have +(15–25)% chance to contain The Sacred Grove
+2000681Your Maps have (80–100)% increased chance to contain The Sacred Grove
+1000681Your Maps have +(15–25)% chance to contain a Smuggler's Cache
+2000681Your Maps have (80–100)% increased chance to contain a Smuggler's Cache
+1000681(10–15)% increased Heist Contracts found in your Maps
+1500681Your Maps have +(15–25)% chance to contain Jun
+1500681Your Maps have (80–100)% increased chance to contain Jun
+2000681Your Maps have +(15–25)% chance to contain a Legion Encounter
+2000681Your Maps have (80–100)% increased chance to contain a Legion Encounter
+1000681Tier 1-15 Maps found have (5–10)% chance to become 1 tier higher
+2000681Your Maps have (80–100)% increased chance to contain an Ultimatum Encounter
+2000681Your Maps have +(15–25)% chance to contain an Ultimatum Encounter
+2000681Your Maps have +(15–25)% chance to contain Ritual Altars
+2000681Your Maps have (80–100)% increased chance to contain Ritual Altars
+1000681(5–10)% increased Scarabs found in your Maps
+1000681Your Maps have +(35–50)% chance to contain a Strongbox
+1000681Your Maps have a (35–50)% chance to be haunted by an additional Tormented Spirit
+1000681Your Maps have +(7–10)% chance to be haunted by a Tormented Spirit
+1000681(10–15)% increased Atlas Scouting Reports found in your Maps
+1000681(2–3)% increased Maps found in Area
+1000681Your Maps contain (3–5)% more Monster Packs consisting of difficult and rewarding Monsters
+Suffixes
+1000681Abyssal Troves and Stygian Spires in your Maps have (15–25)% increased chance to contain or drop an Abyss Jewel
+1000681Abyssal Troves and Stygian Spires in your Maps have (6–10)% chance to drop a Rare Item with an Abyssal Socket
+1000681(300–350)% increased Rarity of Items Dropped by Abyssal Troves and Stygian Spires in your Maps
+1500681Incursions in your Maps have (4–6)% increased Pack Size
+500681(5–10)% chance to create a copy of Beasts Captured in your Maps
+250681Red Beasts in your Maps have (40–60)% increased chance to be from The Deep
+250681Red Beasts in your Maps have (40–60)% increased chance to be from The Wilds
+250681Red Beasts in your Maps have (40–60)% increased chance to be from The Caverns
+250681Red Beasts in your Maps have (40–60)% increased chance to be from The Sands
+333681Beyond Demons in your Maps have (35–45)% increased chance to be followers of K'tash
+333681Beyond Demons in your Maps have (35–45)% increased chance to be followers of Beidat
+333681Beyond Demons in your Maps have (35–45)% increased chance to be followers of Ghorr
+800681(15–20)% reduced Cost of Building and Upgrading Towers
+1200681Blight Chests in your Maps have (15–25)% more chance to contain Blighted Maps
+600681Breaches in your Maps spawn (15–20)% increased Magic Monsters
+200681Chayula, Who Dreamt in your Maps has a (20–30)% chance to be Duplicated
+200681Esh, Forked Thought in your Maps has a (20–30)% chance to be Duplicated
+200681Uul-Netol, Unburdened Flesh in your Maps has a (20–30)% chance to be Duplicated
+200681Xoph, Dark Embers in your Maps has a (20–30)% chance to be Duplicated
+200681Tul, Creeping Avalanche in your Maps has a (20–30)% chance to be Duplicated
+400681Breaches in your Maps have (35–45)% increased chance to contain a Breach Boss' Clasped Hand
+1000731Monster Packs Influenced by The Searing Exarch in your Maps have (4–6)% increased Pack Size
+200681Delirium Encounters in your Maps have (6–10)% chance to generate an additional Reward type
+400681Delirium Encounters in your Maps are (35–50)% more likely to spawn Unique Bosses
+500681Delirium Bosses in your Maps drop (20–30)% increased Simulacrum Splinters
+400681Delirious Monsters Killed in your Maps provide (10–20)% increased Reward Progress
+500681Delirium Monsters in your Maps have (5–10)% increased Pack Size
+1500681Sulphite Veins and Chests in your Maps have (3–5)% chance to also contain an equal amount of Azurite
+1000681(30–40)% increased Duration of Shrine Effects on Players in your Maps
+500681Imprisoned Monsters in your Maps have (40–60)% chance to drop an additional Rare Item with an Essence Modifier
+500681Imprisoned Monsters in your Maps have (8–12)% chance to have an additional Essence
+1000681(15–20)% increased Explosive Radius in your Maps
+1000681(15–25)% increased Quantity of Expedition Logbooks dropped by Runic Monsters in your Maps
+1000681Harbingers in your Maps have (20–30)% increased Cooldown Recovery Rate
+1100681Harvest Monsters in your Maps grant (70–90)% increased Experience
+300681Harvest Crops in your Maps have (10–15)% reduced chance to grow Yellow Plants
+300681Harvest Crops in your Maps have (10–15)% reduced chance to grow Blue Plants
+300681Harvest Crops in your Maps have (10–15)% reduced chance to grow Purple Plants
+800681Smuggler's Caches in your Maps have (35–45)% increased chance to drop Blueprints
+400681Heist Contracts found in your Maps are (40–60)% more likely to require Lockpicking, Brute Force or Perception
+400681Heist Contracts found in your Maps are (40–60)% more likely to require Demolition, Counter-Thaumaturgy or Trap Disarmament
+400681Heist Contracts found in your Maps are (40–60)% more likely to require Agility, Deception or Engineering
+1000681Immortal Syndicate Members in your Maps are (40–60)% more likely to be accompanied by their Leader
+1000681Immortal Syndicate Members Executed in your Maps have (40–60)% chance to gain an additional Rank
+500681Legion Sergeants in your Maps have (6–10)% additional chance to have Rewards
+750681Legion Encounters in your Maps are (25–35)% more likely to include a General
+750681Legion Chests released from Stasis in your Maps release other Monsters and Chests with (35–50)% increased Range
+600681Ultimatum Encounters in your Maps have (15–20)% increased chance for the final Round to include a Boss
+200681Ultimatum Encounters in your Maps have (40–60)% increased chance to require you to protect the Altar
+200681Ultimatum Rewards in your Maps have (20–30)% increased chance to be Unique Items
+200681Ultimatum Rewards in your Maps have (20–30)% increased chance to be Jewellery
+200681Ultimatum Rewards in your Maps have (20–30)% increased chance to be Currency Items
+200681Ultimatum Encounters in your Maps have (40–60)% increased chance to require you to defeat waves of Enemies
+200681Ultimatum Encounters in your Maps have (40–60)% increased chance to require you to Stand in the Stone Circles
+200681Ultimatum Rewards in your Maps have (20–30)% increased chance to be Divination Cards
+200681Ultimatum Rewards in your Maps have (20–30)% increased chance to be Gems
+200681Ultimatum Encounters in your Maps have (40–60)% increased chance to only require you to Survive
+400681Rerolling Favours at Ritual Altars in your Maps costs (8–12)% reduced Tribute
+800681Favours Deferred at Ritual Altars in your Maps reappear (20–30)% sooner
+800681Unique Monsters slain at Ritual Altars in your Maps grant (40–60)% more Tribute
+500681Unique Monsters in your Maps have (75–100)% increased chance to drop Scarabs
+333681Strongboxes in your Maps have (50–70)% increased chance to be an Arcanist's Strongbox
+333681Strongboxes in your Maps have (50–70)% increased chance to be a Cartographer's Strongbox
+333681Strongboxes in your Maps have (50–70)% increased chance to be a Diviner's Strongbox
+333681Strongboxes in your Maps have (40–60)% increased chance to be a Gemcutter's Strongbox
+500731Your Maps have (4–6)% chance to award double progress towards encountering The Eater of Worlds
+500731Eldritch Ichor found in your Maps influenced by The Eater of Worlds have (4–6)% chance to be Duplicated
+1000681Tormented Spirits in your Maps have (40–60)% increased Duration
+500681Items found in your Corrupted Maps have (1–2)% chance to be Corrupted
+500681Vaal Side Areas in your Maps have (6–10)% chance to be an Alluring Vaal Side Area
+500681Items dropped by Rare Monsters have (3–5)% chance to be Corrupted
+400681(2–4)% chance for Scouting Reports to drop as Otherworldly Scouting Reports instead in your Maps
+400681(2–4)% chance for Scouting Reports to drop as Delirious Scouting Reports instead in your Maps
+400681(2–4)% chance for Scouting Reports to drop as Blighted Scouting Reports instead in your Maps
+400681(6–10)% chance for Scouting Reports to drop as Comprehensive Scouting Reports instead in your Maps
+400681(4–6)% chance for Scouting Reports to drop as Vaal Scouting Reports instead in your Maps
+400681(3–5)% chance for Scouting Reports to drop as Operative's Scouting Reports instead in your Maps
+400681(4–6)% chance for Scouting Reports to drop as Singular Scouting Reports instead in your Maps
